@@ -36,7 +36,7 @@ public class RomVersionDetailPreferenceController extends BasePreferenceControll
     private static final String TAG = "romDialogCtrl";
     private static final String KEY_ROM_VERSION_PROP = "org.atom.build_version";
     private static final String KEY_ROM_RELEASETYPE_PROP = "org.atom.build_type";
-    private static final String KEY_ROM_CODENAME_PROP = "org.atom.build_codename";
+   private static final String KEY_ROM_CODENAME_PROP = "org.atom.build_codename";
     private final PackageManager mPackageManager = this.mContext.getPackageManager();
 
     public RomVersionDetailPreferenceController(Context context, String preferenceKey) {

@@ -107,6 +107,7 @@
     <string name="navigation_bar_home_long_press_title">Home long press action</string>
     <string name="navigation_bar_home_double_tap_title">Home double tap action</string>
     <string name="navigation_bar_app_switch_long_press_title">Recents long press action</string>
+    <string name="navigation_bar_edge_long_swipe_title">Edge long swipe action</string>
 
     <!-- Volume keys customization -->
     <string name="volbtn_music_controls_title">Control playback</string>
@@ -244,7 +245,7 @@
     <string name="qs_tile_animation_style_off">None</string>
     <string name="qs_tile_animation_style_flip">Flip</string>
     <string name="qs_tile_animation_style_rotate">Rotate</string>
-    <string name="qs_tile_animation_duration_low">Low</string>
+    <string name="qs_tile_animation_duration_low">Slow</string>
     <string name="qs_tile_animation_duration_default">Default</string>
     <string name="qs_tile_animation_duration_fast">Fast</string>
     <string name="qs_tile_animation_interpolator_linearInterpolator">Linear</string>
@@ -274,10 +275,6 @@
     <!-- Navigation compact layout -->
     <string name="navigation_bar_compact_layout_title">Compact layout</string>
     <string name="navigation_bar_compact_layout_summary">Use a compact layout in the navigation bar</string>
-
-    <!-- Full screen gestures -->
-    <string name="navbar_gesture_pill_toggle_title">Full screen gestures</string>
-    <string name="navbar_gesture_pill_toggle_summary">This will hide both the navigation bar and the pill for a seamless fullscreen gesture experience.</string>
 
     <!-- LiveDisplay -->
     <string name="live_display_summary">Optimize your screen based on time of day and ambient conditions to improve readability and reduce eyestrain</string>
@@ -331,5 +328,14 @@
     <string name="adj_saturation_title">Saturation</string>
     <string name="adj_intensity_title">Intensity</string>
     <string name="adj_contrast_title">Contrast</string>
+
+    <!-- Back Gesture Height -->
+    <string name="back_height_low_label">Full</string>
+    <string name="back_height_high_label">Bottom area</string>
+    <string name="back_options_dialog_title">Options</string>
+    <string name="back_height_message">Amount of screen height used as touchable region for back gesture.</string>
+
+    <!-- Full screen gestures -->
+    <string name="navbar_gesture_pill_toggle_title">Hide the navigation bar pill.</string>
 
 </resources>

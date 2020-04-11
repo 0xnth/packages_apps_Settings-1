@@ -173,7 +173,8 @@ public class SystemNavigationGestureSettings extends RadioButtonPickerFragment {
         if (info.getKey() == KEY_SYSTEM_NAV_GESTURAL) {
             p.setExtraWidgetVisibility(EXTRA_WIDGET_VISIBILITY_SETTING);
             p.setExtraWidgetOnClickListener((v) -> GestureNavigationBackSensitivityDialog
-                    .show(this, getBackSensitivity(getContext(), mOverlayManager)));
+                    .show(this, getBackSensitivity(getContext(), mOverlayManager),
+                    getBackHeight(getContext())));
         } else {
             p.setExtraWidgetVisibility(EXTRA_WIDGET_VISIBILITY_GONE);
         }
@@ -271,7 +272,7 @@ public class SystemNavigationGestureSettings extends RadioButtonPickerFragment {
                 Settings.System.GESTURE_PILL_TOGGLE, 0);
     }
 
-    public static void setBackGestureOverlaysToUse(Context context) {
+    static void setBackGestureOverlaysToUse(Context context) {
         if (getPillToggleState(context) == 1)
             BACK_GESTURE_OVERLAYS_TO_USE = BACK_GESTURE_INSET_OVERLAYS_NO_PILL;
         else
@@ -279,7 +280,7 @@ public class SystemNavigationGestureSettings extends RadioButtonPickerFragment {
     }
 
     @VisibleForTesting
-    public static String getCurrentSystemNavigationMode(Context context) {
+    static String getCurrentSystemNavigationMode(Context context) {
         if (SystemNavigationPreferenceController.isEdgeToEdgeEnabled(context)) {
             return KEY_SYSTEM_NAV_GESTURAL;
         } else if (SystemNavigationPreferenceController.isSwipeUpEnabled(context)) {
@@ -289,9 +290,24 @@ public class SystemNavigationGestureSettings extends RadioButtonPickerFragment {
         }
     }
 
+    static void setBackHeight(Context context, int height) {
+        // height cant be range 0 - 3
+        // 0 means full height
+        // 1 measns half of the screen
+        // 2 means lower third of the screen
+        // 3 means lower sixth of the screen
+        Settings.System.putInt(context.getContentResolver(),
+                Settings.System.BACK_GESTURE_HEIGHT, height);
+    }
+
+    static int getBackHeight(Context context) {
+        return Settings.System.getInt(context.getContentResolver(),
+                Settings.System.BACK_GESTURE_HEIGHT, 0);
+    }
+
     @VisibleForTesting
-    public static void setCurrentSystemNavigationMode(Context context, IOverlayManager overlayManager,
-                  String key) {
+    static void setCurrentSystemNavigationMode(Context context, IOverlayManager overlayManager,
+            String key) {
         switch (key) {
             case KEY_SYSTEM_NAV_GESTURAL:
                 int sensitivity = getBackSensitivity(context, overlayManager);
